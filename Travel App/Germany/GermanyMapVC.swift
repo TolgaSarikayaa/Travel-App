@@ -8,7 +8,7 @@
 import UIKit
 import MapKit
 
-class GermanyMapVC: UIViewController {
+class GermanyMapVC: UIViewController, CLLocationManagerDelegate {
 
     @IBOutlet var mapview: MKMapView!
     
@@ -24,25 +24,45 @@ class GermanyMapVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        mapview.pointOfInterestFilter = MKPointOfInterestFilter(including: [.restaurant, .cafe, .nightlife,.hotel])
-        
-        mapview.addAnnotations(dataSource.annotations2)
-        mapview.showAnnotations(dataSource.annotations2, animated: false)
+    
+        setupMapView(mapview, dataSource: dataSource)
         
     }
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-        if let annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier, for: annotation) as? MKMarkerAnnotationView {
-            
-            if annotation is MKPointAnnotation {
-               
-                
-            }
-            return annotationView
+        if annotation is MKUserLocation {
+            return nil
         }
-        return nil
+        
+        let reuseId = "pin"
+        var pinView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseId) as? MKMarkerAnnotationView
+        
+        if pinView == nil {
+            pinView = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: reuseId)
+            pinView?.canShowCallout = true
+            
+            let button = UIButton(type: .detailDisclosure)
+            pinView?.rightCalloutAccessoryView = button
+        } else {
+            pinView?.annotation = annotation
+        }
+        
+        return pinView
     }
-
     
-
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        if control == view.rightCalloutAccessoryView {
+           
+            if let annotation = view.annotation {
+                let coordinate = annotation.coordinate
+                let placemark = MKPlacemark(coordinate: coordinate)
+                let mapItem = MKMapItem(placemark: placemark)
+                mapItem.name = annotation.title ?? "Destination"
+                let options = [MKLaunchOptionsDirectionsModeKey: MKLaunchOptionsDirectionsModeDriving]
+                mapItem.openInMaps(launchOptions: options)
+            }
+        }
+    }
+     
+    
 }

@@ -2,7 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="yad-2e-P7P">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
         <capability name="Map view configurations" minToolsVersion="14.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -114,7 +114,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MwL-7E-riI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1871" y="375"/>
+            <point key="canvasLocation" x="1870.9923664122136" y="374.64788732394368"/>
         </scene>
         <!--Germany Map Vc Castles-->
         <scene sceneID="sm9-ZO-xR8">
@@ -204,6 +204,7 @@
                     <connections>
                         <segue destination="7rW-8d-ZfD" kind="show" identifier="warmRegions" id="I0r-mq-nUH"/>
                         <segue destination="ucT-B9-tFg" kind="show" identifier="coldRegions" id="HoK-Ml-ixs"/>
+                        <segue destination="wd6-AA-hcj" kind="show" identifier="AddNewPlace" id="5WN-e1-aih"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Pt-aK-0JV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -240,6 +241,47 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GiZ-VK-bXD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2749" y="17"/>
+        </scene>
+        <!--Add New RegionVC-->
+        <scene sceneID="xeH-cF-aZO">
+            <objects>
+                <viewController id="wd6-AA-hcj" customClass="AddNewRegionVC" customModule="Travel_App" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="pRF-7v-CeF">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1VQ-Ml-P5y">
+                                <rect key="frame" x="0.0" y="179" width="393" height="549"/>
+                                <standardMapConfiguration key="preferredConfiguration"/>
+                            </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1WD-Wd-xK3">
+                                <rect key="frame" x="166" y="763" width="61" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Save"/>
+                                <connections>
+                                    <action selector="saveButtonClicked:" destination="wd6-AA-hcj" eventType="touchUpInside" id="4yZ-fH-hei"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="y40-RC-7jX"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="y40-RC-7jX" firstAttribute="trailing" secondItem="1VQ-Ml-P5y" secondAttribute="trailing" id="0db-3j-Cl3"/>
+                            <constraint firstItem="1VQ-Ml-P5y" firstAttribute="top" secondItem="y40-RC-7jX" secondAttribute="top" constant="76" id="Dk5-66-3RN"/>
+                            <constraint firstItem="y40-RC-7jX" firstAttribute="bottom" secondItem="1VQ-Ml-P5y" secondAttribute="bottom" constant="90" id="dyx-Aq-n0b"/>
+                            <constraint firstItem="1WD-Wd-xK3" firstAttribute="centerX" secondItem="1VQ-Ml-P5y" secondAttribute="centerX" id="gt7-bq-QkD"/>
+                            <constraint firstItem="1WD-Wd-xK3" firstAttribute="top" secondItem="1VQ-Ml-P5y" secondAttribute="bottom" constant="35" id="vYx-9r-57a"/>
+                            <constraint firstItem="1VQ-Ml-P5y" firstAttribute="leading" secondItem="y40-RC-7jX" secondAttribute="leading" id="wl8-WO-iys"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="34f-NM-5aj"/>
+                    <connections>
+                        <outlet property="AddNewPlace" destination="1VQ-Ml-P5y" id="F8s-9S-Puy"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ryf-un-lNA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3571.7557251908397" y="286.61971830985919"/>
         </scene>
         <!--Turkey MapVC-->
         <scene sceneID="uxc-sM-rRC">

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		142D90092A7BD60100E3C70F /* AddNewRegionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142D90082A7BD60100E3C70F /* AddNewRegionVC.swift */; };
+		142D900B2A7BDCEE00E3C70F /* PlaceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142D900A2A7BDCEE00E3C70F /* PlaceModel.swift */; };
 		1441EFEA29E7247F004C9503 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1441EFE929E7247F004C9503 /* AppDelegate.swift */; };
 		1441EFEC29E7247F004C9503 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1441EFEB29E7247F004C9503 /* SceneDelegate.swift */; };
 		1441EFEE29E7247F004C9503 /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1441EFED29E7247F004C9503 /* CollectionViewController.swift */; };
@@ -23,9 +25,12 @@
 		1441F01229E80F6C004C9503 /* GermanyMapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1441F01129E80F6C004C9503 /* GermanyMapVC.swift */; };
 		1441F01629E82787004C9503 /* GermanyMapDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1441F01529E82787004C9503 /* GermanyMapDataSource.swift */; };
 		1441F01829E9E26D004C9503 /* GermanyMapVcCastles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1441F01729E9E26D004C9503 /* GermanyMapVcCastles.swift */; };
+		14D4BD462B1C957900749E3E /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D4BD452B1C957900749E3E /* Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		142D90082A7BD60100E3C70F /* AddNewRegionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewRegionVC.swift; sourceTree = "<group>"; };
+		142D900A2A7BDCEE00E3C70F /* PlaceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceModel.swift; sourceTree = "<group>"; };
 		1441EFE629E7247F004C9503 /* Travel App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Travel App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1441EFE929E7247F004C9503 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1441EFEB29E7247F004C9503 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -44,6 +49,7 @@
 		1441F01129E80F6C004C9503 /* GermanyMapVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GermanyMapVC.swift; sourceTree = "<group>"; };
 		1441F01529E82787004C9503 /* GermanyMapDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GermanyMapDataSource.swift; sourceTree = "<group>"; };
 		1441F01729E9E26D004C9503 /* GermanyMapVcCastles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GermanyMapVcCastles.swift; sourceTree = "<group>"; };
+		14D4BD452B1C957900749E3E /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +87,9 @@
 				1441EFED29E7247F004C9503 /* CollectionViewController.swift */,
 				1441EFFD29E7E512004C9503 /* CountriesCollectionViewCell.swift */,
 				1441EFFF29E7E869004C9503 /* Countries.swift */,
+				142D90082A7BD60100E3C70F /* AddNewRegionVC.swift */,
+				142D900A2A7BDCEE00E3C70F /* PlaceModel.swift */,
+				14D4BD452B1C957900749E3E /* Extension.swift */,
 				1441F00529E7F98B004C9503 /* Turkey */,
 				1441F00629E7F9A9004C9503 /* Germany */,
 				1441EFEF29E7247F004C9503 /* Main.storyboard */,
@@ -191,12 +200,15 @@
 				1441EFFE29E7E512004C9503 /* CountriesCollectionViewCell.swift in Sources */,
 				1441EFEA29E7247F004C9503 /* AppDelegate.swift in Sources */,
 				1441F00029E7E869004C9503 /* Countries.swift in Sources */,
+				14D4BD462B1C957900749E3E /* Extension.swift in Sources */,
+				142D900B2A7BDCEE00E3C70F /* PlaceModel.swift in Sources */,
 				1441F00C29E7FB4D004C9503 /* TurkeyMapDataSource.swift in Sources */,
 				1441F00229E7EEF6004C9503 /* RegionsTableViewController.swift in Sources */,
 				1441F01829E9E26D004C9503 /* GermanyMapVcCastles.swift in Sources */,
 				1441F01229E80F6C004C9503 /* GermanyMapVC.swift in Sources */,
 				1441EFEC29E7247F004C9503 /* SceneDelegate.swift in Sources */,
 				1441F00A29E7FA6A004C9503 /* TurkeyMapVC.swift in Sources */,
+				142D90092A7BD60100E3C70F /* AddNewRegionVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

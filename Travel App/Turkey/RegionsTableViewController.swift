@@ -16,6 +16,11 @@ class RegionsTableViewController: UITableViewController {
         super.viewDidLoad()
 
         tableView.backgroundView = UIImageView(image: UIImage(named: "Gruppe 3"))
+        
+        
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Add", style: .done, target: self, action: #selector(addButton))
+        
       
     }
 
@@ -49,6 +54,10 @@ class RegionsTableViewController: UITableViewController {
         default:
             return
         }
+    }
+    
+    @objc func addButton() {
+        performSegue(withIdentifier: "AddNewPlace", sender: nil)
     }
 
 
