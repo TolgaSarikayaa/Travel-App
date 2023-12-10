@@ -28,11 +28,20 @@ class TurkeyMapVCSkiCenters: UIViewController, CLLocationManagerDelegate {
 
         
        
-        
-        setupMapView(mapView2, dataSource:  dataSource)
+        mapView2.delegate = self
+ 
+        if let annotations = dataSource.annotationsByCategory["Cold"] {
+                mapView2.addAnnotations(annotations)
+                mapView2.showAnnotations(annotations, animated: false)
+            }
+        }
         
         
     }
+    
+
+
+extension TurkeyMapVCSkiCenters : MKMapViewDelegate {
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         if annotation is MKUserLocation {
@@ -69,10 +78,14 @@ class TurkeyMapVCSkiCenters: UIViewController, CLLocationManagerDelegate {
         }
     }
     
+    func mapView(_ mapView: MKMapView, didAdd views: [MKAnnotationView]) {
+            if let annotations = dataSource.annotationsByCategory["Cold"] {
+                mapView.addAnnotations(annotations)
+                mapView.showAnnotations(annotations, animated: false)
+            }
+        }
     
-    
-    
-   }
+}
     
 
 

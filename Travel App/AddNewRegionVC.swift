@@ -19,7 +19,7 @@ class AddNewRegionVC: UIViewController,  CLLocationManagerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        AddNewPlace.delegate = self
+        //AddNewPlace.delegate = self
         locationManager.delegate = self
         
         let recognizer = UILongPressGestureRecognizer(target: self, action: #selector(chooseLocation(gestureRecognizer:)))

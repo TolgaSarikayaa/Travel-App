@@ -12,30 +12,13 @@ class RegionsTableViewController: UITableViewController {
    private static let reuseIdentifier = "RegionsCell"
     
     
-    private var categories: [String] {
-           get {
-               return UserDefaults.standard.stringArray(forKey: "SavedCategories") ?? []
-           }
-           set {
-               UserDefaults.standard.set(newValue, forKey: "SavedCategories")
-           }
-       }
+   var categories = ["Summer Cities","Ski Centers"]
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if UserDefaults.standard.object(forKey: "SavedCategories") == nil {
-               let defaultCategories = ["Summer Cities", "Ski Centers"]
-               UserDefaults.standard.set(defaultCategories, forKey: "SavedCategories")
-            tableView.reloadData()
-           }
-
-        tableView.backgroundView = UIImageView(image: UIImage(named: "Gruppe 3"))
-        
-        
-        
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Add", style: .done, target: self, action: #selector(addButton))
+       
         
       
     }
@@ -49,10 +32,18 @@ class RegionsTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: RegionsTableViewController.reuseIdentifier, for: indexPath)
         
-        cell.textLabel?.text = categories[indexPath.row]
-        
-        return cell
-    }
+        switch indexPath.row {
+                case 0:
+                    cell.textLabel?.text = "Summer Cities"
+                case 1:
+                    cell.textLabel?.text = "Ski Centers"
+                default:
+                    break
+                }
+                //cell.textLabel?.text = categories[indexPath.row]
+
+                return cell
+            }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
      
@@ -68,25 +59,7 @@ class RegionsTableViewController: UITableViewController {
     }
     
     @objc func addButton() {
-        let alertController = UIAlertController(title: "Add Category", message: "Select a category to add", preferredStyle: .alert)
-        
-        let summerCitiesAction = UIAlertAction(title: "Summer Cities 2", style: .default) { (_) in
-            self.addCategory("Summer Cities 2")
-        }
-        alertController.addAction(summerCitiesAction)
-        
-        let skiCentersAction = UIAlertAction(title: "Ski Centers", style: .default) { (_) in
-            self.addCategory("Ski Centers")
-        }
-        alertController.addAction(skiCentersAction)
-        
-    
-        
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-        alertController.addAction(cancelAction)
-        
-       
-        present(alertController, animated: true, completion: nil)
+  
 
     }
     

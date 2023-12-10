@@ -25,10 +25,18 @@ class TurkeyMapVC: UIViewController, CLLocationManagerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-      setupMapView(mapView, dataSource: dataSource)
+        mapView.delegate = self
+        
+        if let annotations = dataSource.annotationsByCategory["Warm"] {
+            mapView.addAnnotations(annotations)
+            mapView.showAnnotations(annotations, animated: true)
+        }
       
     }
     
+}
+
+extension TurkeyMapVC: MKMapViewDelegate {
     
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
@@ -65,7 +73,13 @@ class TurkeyMapVC: UIViewController, CLLocationManagerDelegate {
             }
         }
     }
-     
+    
+    func mapView(_ mapView: MKMapView, didAdd views: [MKAnnotationView]) {
+            if let annotations = dataSource.annotationsByCategory["Warm"] {
+                mapView.addAnnotations(annotations)
+                mapView.showAnnotations(annotations, animated: false)
+            }
+        }
     
 }
 
