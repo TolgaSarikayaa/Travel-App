@@ -78,13 +78,6 @@ extension TurkeyMapVCSkiCenters : MKMapViewDelegate {
         }
     }
     
-    func mapView(_ mapView: MKMapView, didAdd views: [MKAnnotationView]) {
-            if let annotations = dataSource.annotationsByCategory["Cold"] {
-                mapView.addAnnotations(annotations)
-                mapView.showAnnotations(annotations, animated: false)
-            }
-        }
-    
 }
     
 

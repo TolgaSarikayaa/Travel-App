@@ -24,11 +24,22 @@ class GermanyMapVcCastles: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    
+        mapview.delegate = self
         
-        setupMapView(mapview, dataSource: dataSource)
+        if let annotations = dataSource.annotationsByCategory["Castles"] {
+            mapview.addAnnotations(annotations)
+            mapview.showAnnotations(annotations, animated: false)
+            
+        }
+        
+    
         
     }
     
+}
+
+extension GermanyMapVcCastles : MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         if annotation is MKUserLocation {
             return nil
@@ -65,7 +76,4 @@ class GermanyMapVcCastles: UIViewController {
     }
      
     
-
-    
-
 }

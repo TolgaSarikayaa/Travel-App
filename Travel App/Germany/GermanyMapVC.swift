@@ -24,11 +24,16 @@ class GermanyMapVC: UIViewController, CLLocationManagerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-    
-        setupMapView(mapview, dataSource: dataSource)
+        mapview.delegate = self
         
+        if let annotations = dataSource.annotationsByCategory["SkiCenters"] {
+            mapview.addAnnotations(annotations)
+            mapview.showAnnotations(annotations, animated: false)
+        }
     }
-    
+}
+
+extension GermanyMapVC : MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         if annotation is MKUserLocation {
             return nil
@@ -63,6 +68,5 @@ class GermanyMapVC: UIViewController, CLLocationManagerDelegate {
             }
         }
     }
-     
-    
+
 }

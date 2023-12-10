@@ -74,12 +74,5 @@ extension TurkeyMapVC: MKMapViewDelegate {
         }
     }
     
-    func mapView(_ mapView: MKMapView, didAdd views: [MKAnnotationView]) {
-            if let annotations = dataSource.annotationsByCategory["Warm"] {
-                mapView.addAnnotations(annotations)
-                mapView.showAnnotations(annotations, animated: false)
-            }
-        }
-    
 }
 
